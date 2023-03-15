@@ -1,0 +1,45 @@
+ * {
+    font-family: monospace;
+}
+
+body {
+    background-color: #BFC39F;
+    text-align: center;
+}
+
+#topBar {
+    display: flex;
+    background-color: #289D8F;
+    justify-content: space-between;
+    font-weight: bolder;
+    margin-bottom: 6em;
+    border: 0.14em solid black;
+    font-size: 1.2em;
+}
+
+#highscoreLink a {
+    padding: 0.1em 1em;
+    color: black;
+    font-weight: bolder;
+    text-align: start;
+}
+
+#topBar #timer {
+    padding: 0.1em 1em;
+}
+
+#quizSection {
+    display: block;
+    background-color: beige;
+    border: 0.14em solid black;
+    padding: 3em 3em;
+    margin: 1em 20%;
+}
+
+button:hover {
+    background-color: #D77E6B;
+    cursor: pointer;
+}
+
+
+
