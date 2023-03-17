@@ -206,7 +206,6 @@ var questionTwo = function (event) {
       "padding-top: 0.5em; border-top: 0.08em solid black"
     );
     quizSection.append(result);
-    time -= 10;
   }
   return;
 
@@ -239,13 +238,7 @@ var questionThree = function (event) {
       "padding-top: 0.5em; border-top: 0.08em solid black"
     );
     quizSection.append(result);
-    time -= 10;
   }
-
-  answerOne.setAttribute("id", "choiceOne");
-  answerTwo.setAttribute("id", "choiceTwo");
-  answerThree.setAttribute("id", "choiceThree");
-  answerFour.setAttribute("id", "choiceFour");
 
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
@@ -286,12 +279,7 @@ var questionFour = function (event) {
       "padding-top: 0.5em; border-top: 0.08em solid black"
     );
     quizSection.append(result);
-    time -= 10;
   }
-  answerOne.setAttribute("id", "choiceOne");
-  answerTwo.setAttribute("id", "choiceTwo");
-  answerThree.setAttribute("id", "choiceThree");
-  answerFour.setAttribute("id", "choiceFour");
 
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
@@ -332,7 +320,6 @@ var questionFive = function (event) {
       "padding-top: 0.5em; border-top: 0.08em solid black"
     );
     quizSection.append(result);
-    time -= 10;
   }
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
