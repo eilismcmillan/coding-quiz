@@ -57,7 +57,7 @@ var quiz = [
   {
     question: "4. Which of the following operators represent strict equality",
     answers: ["a) !==", "b) ===", "c) ||", "d) =="],
-    correctAnswer: "b) parentheses",
+    correctAnswer: "b) ===",
   },
   {
     question:
@@ -100,7 +100,7 @@ var timer = function () {
     } else if (time === 0) {
     // when time is up, the page will cease the question section
     // redirecting to the final score/enter initials section
-      // clearInterval(timerInterval);
+      clearInterval(timerInterval);
       enterInitials();
     }
   }, 1000);
@@ -147,7 +147,7 @@ var quizQuestions = function () {
 };
 
 // prompted by the previous function, question one is presented
-var questionOne = function (event) {
+var questionOne = function () {
   questionTitle.innerHTML = quiz[0].question;
 
   answerOne.textContent = quiz[0].answers[0];
