@@ -36,7 +36,7 @@ body {
     margin: 1em 20%;
 }
 
-button:hover {
+Button:hover {
     background-color: #D77E6B;
     cursor: pointer;
 }
