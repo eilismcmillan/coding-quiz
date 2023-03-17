@@ -1,4 +1,3 @@
-
 // created elements to be used on loading screen
 var secondsRemaining = document.querySelector("#seconds");
 var quizSection = document.querySelector("#quizSection");
@@ -147,6 +146,7 @@ var quizQuestions = function () {
   questionOne();
 };
 
+// prompted by the previous function, question one is presented
 var questionOne = function (event) {
   questionTitle.innerHTML = quiz[0].question;
 
@@ -165,16 +165,18 @@ var questionOne = function (event) {
   var choiceThree = document.getElementById("choiceThree");
   var choiceFour = document.getElementById("choiceFour");
 
+  // each button directly prompts the next question
   choiceOne.addEventListener("click", questionTwo);
   choiceTwo.addEventListener("click", questionTwo);
   choiceThree.addEventListener("click", questionTwo);
   choiceFour.addEventListener("click", questionTwo);
+
 };
 
 var questionTwo = function (event) {
   event.preventDefault()
+  event.stopPropagation();
   let userAnswer = event.currentTarget.textContent;
-  // hard coding for now, set quiz index as a variable
   questionTitle.innerHTML = quiz[1].question;
 
   answerOne.textContent = quiz[1].answers[0];
@@ -197,6 +199,8 @@ var questionTwo = function (event) {
   choiceThree.addEventListener("click", questionThree);
   choiceFour.addEventListener("click", questionThree);
 
+  // checks the result of the previous question
+  // prints result at bottomof page 
   if (userAnswer === quiz[0].answers[2]) {
     score += 10;
     result.textContent = "Correct!";
@@ -214,11 +218,13 @@ var questionTwo = function (event) {
     quizSection.append(result);
     time -= 10;
   }
-  event.stopPropagation()
+  return;
+
 };
 
 var questionThree = function (event) {
   event.preventDefault()
+  event.stopPropagation();
   let userAnswer = event.currentTarget.textContent;
 
   questionTitle.innerHTML = quiz[2].question;
@@ -260,10 +266,12 @@ var questionThree = function (event) {
   choiceTwo.addEventListener("click", questionFour);
   choiceThree.addEventListener("click", questionFour);
   choiceFour.addEventListener("click", questionFour);
+  return;
 };
 
 var questionFour = function (event) {
   event.preventDefault()
+  event.stopPropagation();
   let userAnswer = event.currentTarget.textContent;
 
   questionTitle.innerHTML = quiz[3].question;
@@ -290,7 +298,6 @@ var questionFour = function (event) {
     quizSection.append(result);
     time -= 10;
   }
-  event.stopPropagation()
   answerOne.setAttribute("id", "choiceOne");
   answerTwo.setAttribute("id", "choiceTwo");
   answerThree.setAttribute("id", "choiceThree");
@@ -305,11 +312,12 @@ var questionFour = function (event) {
   choiceTwo.addEventListener("click", questionFive);
   choiceThree.addEventListener("click", questionFive);
   choiceFour.addEventListener("click", questionFive);
+  return;
 };
 
 var questionFive = function (event) {
   event.preventDefault()
-  
+  event.stopPropagation();
   let userAnswer = event.currentTarget.textContent;
 
   questionTitle.innerHTML = quiz[4].question;
@@ -336,7 +344,7 @@ var questionFive = function (event) {
     quizSection.append(result);
     time -= 10;
   }
-  event.stopPropagation()
+  
   answerOne.setAttribute("id", "choiceOne");
   answerTwo.setAttribute("id", "choiceTwo");
   answerThree.setAttribute("id", "choiceThree");
@@ -352,8 +360,11 @@ var questionFive = function (event) {
   choiceTwo.addEventListener("click", enterInitials);
   choiceThree.addEventListener("click", enterInitials);
   choiceFour.addEventListener("click", enterInitials);
+  return;
 };
 
+// checks the result of the last question, adding to the score if correct
+// prompts the last page
 var checkLastAnswer = function (event) {
   let userAnswer = event.currentTarget.textContent;
   if (userAnswer === quiz[4].answers[2]) {
@@ -372,8 +383,14 @@ var checkLastAnswer = function (event) {
     );
     quizSection.append(result);
   }
+  return;
 };
 
+//questions are cleared
+// final score is calculated and shown to user
+// user prompted to put in initials
+// go back button returns to loading page
+// submit button takes user to the highscore page
 var enterInitials = function (event) {
   quizSection.innerHTML = "";
   checkLastAnswer(event, result);
@@ -408,6 +425,7 @@ var enterInitials = function (event) {
   submitButton.addEventListener("click", saveHighscores);
 };
 
+// saves the highscores into local storage that can be retrieved in the scoreboard window
 var saveHighscores = function () {
   var initials = initialsInput.value.toUpperCase();
   var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
@@ -420,9 +438,8 @@ var saveHighscores = function () {
   window.location.href = "scoreboard.html";
 };
 
+// call the loading page
 loadingPage();
 
+// when the start button is pressed, the questions begin
 startButton.addEventListener("click", quizQuestions);
-
-// TODO: FIX TIMER
-// TODO: FIX BUTTON DESIGN
