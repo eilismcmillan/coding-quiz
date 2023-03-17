@@ -1,3 +1,5 @@
+
+// created elements to be used on loading screen
 var secondsRemaining = document.querySelector("#seconds");
 var quizSection = document.querySelector("#quizSection");
 var startButton = document.createElement("button");
@@ -5,6 +7,7 @@ var quizTitle = document.createElement("h1");
 var loadingParagraph = document.createElement("p");
 var questionTitle = document.createElement("h2");
 
+// created elements to be used in the questions
 var questionForm = document.createElement("form");
 var answerOne = document.createElement("button");
 answerOne.setAttribute("id", "choiceOne");
@@ -15,6 +18,7 @@ answerThree.setAttribute("id", "choiceThree");
 var answerFour = document.createElement("button");
 answerFour.setAttribute("id", "choiceFour");
 
+// created elements to be used on the end screen
 var result = document.createElement("h3");
 var endScreen = document.createElement("div");
 var quizComplete = document.createElement("h2");
@@ -24,9 +28,12 @@ var initialsInput = document.createElement("input");
 var submitButton = document.createElement("button");
 submitButton.setAttribute("id", "submit");
 
-var time = 60;
+// set global variables
+var time = 100;
 var score = 0;
 
+// created quiz as an array that holds each question and answers as objects
+// each answer was also an array, and correct answer, a separate key value pair
 var quiz = [
   {
     question: "1. Which of the following IS NOT a primitive data type?",
@@ -66,7 +73,7 @@ var quiz = [
   },
 ];
 
-
+// loaded the created loading screen elements, and set design
 var loadingPage = function () {
   quizTitle.textContent = "Coding Quiz Challenge";
   quizTitle.setAttribute("style", "font-size:2.5em;");
@@ -85,19 +92,24 @@ var loadingPage = function () {
   quizSection.appendChild(startButton);
 };
 
-
+// created timer to run with a decrement of 1 second
 var timer = function () {
   var timerInterval = setInterval(function () {
     if (time >= 1) {
       time--;
       secondsRemaining.textContent = time;
     } else if (time === 0) {
-      clearInterval(timerInterval);
+    // when time is up, the page will cease the question section
+    // redirecting to the final score/enter initials section
+      // clearInterval(timerInterval);
       enterInitials();
     }
   }, 1000);
 };
 
+// initiated the timer
+// removed loading screen elements
+// added design elements to 
 var quizQuestions = function () {
   timer();
   score = 0;
@@ -135,7 +147,7 @@ var quizQuestions = function () {
   questionOne();
 };
 
-var questionOne = function () {
+var questionOne = function (event) {
   questionTitle.innerHTML = quiz[0].question;
 
   answerOne.textContent = quiz[0].answers[0];
@@ -143,8 +155,12 @@ var questionOne = function () {
   answerThree.textContent = quiz[0].answers[2];
   answerFour.textContent = quiz[0].answers[3];
 
+  answerOne.setAttribute("id", "choiceOne");
+  answerTwo.setAttribute("id", "choiceTwo");
+  answerThree.setAttribute("id", "choiceThree");
+  answerFour.setAttribute("id", "choiceFour");
+
   var choiceOne = document.getElementById("choiceOne");
-  var choiceOne = document.querySelector("#choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
   var choiceThree = document.getElementById("choiceThree");
   var choiceFour = document.getElementById("choiceFour");
@@ -156,7 +172,7 @@ var questionOne = function () {
 };
 
 var questionTwo = function (event) {
-  event.preventDefault();
+  event.preventDefault()
   let userAnswer = event.currentTarget.textContent;
   // hard coding for now, set quiz index as a variable
   questionTitle.innerHTML = quiz[1].question;
@@ -165,6 +181,11 @@ var questionTwo = function (event) {
   answerTwo.textContent = quiz[1].answers[1];
   answerThree.textContent = quiz[1].answers[2];
   answerFour.textContent = quiz[1].answers[3];
+
+  answerOne.setAttribute("id", "choiceOne");
+  answerTwo.setAttribute("id", "choiceTwo");
+  answerThree.setAttribute("id", "choiceThree");
+  answerFour.setAttribute("id", "choiceFour");
 
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
@@ -193,10 +214,11 @@ var questionTwo = function (event) {
     quizSection.append(result);
     time -= 10;
   }
+  event.stopPropagation()
 };
 
 var questionThree = function (event) {
-  event.preventDefault();
+  event.preventDefault()
   let userAnswer = event.currentTarget.textContent;
 
   questionTitle.innerHTML = quiz[2].question;
@@ -224,6 +246,11 @@ var questionThree = function (event) {
     time -= 10;
   }
 
+  answerOne.setAttribute("id", "choiceOne");
+  answerTwo.setAttribute("id", "choiceTwo");
+  answerThree.setAttribute("id", "choiceThree");
+  answerFour.setAttribute("id", "choiceFour");
+
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
   var choiceThree = document.getElementById("choiceThree");
@@ -236,7 +263,7 @@ var questionThree = function (event) {
 };
 
 var questionFour = function (event) {
-  event.preventDefault();
+  event.preventDefault()
   let userAnswer = event.currentTarget.textContent;
 
   questionTitle.innerHTML = quiz[3].question;
@@ -263,6 +290,11 @@ var questionFour = function (event) {
     quizSection.append(result);
     time -= 10;
   }
+  event.stopPropagation()
+  answerOne.setAttribute("id", "choiceOne");
+  answerTwo.setAttribute("id", "choiceTwo");
+  answerThree.setAttribute("id", "choiceThree");
+  answerFour.setAttribute("id", "choiceFour");
 
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
@@ -276,7 +308,8 @@ var questionFour = function (event) {
 };
 
 var questionFive = function (event) {
-  event.preventDefault();
+  event.preventDefault()
+  
   let userAnswer = event.currentTarget.textContent;
 
   questionTitle.innerHTML = quiz[4].question;
@@ -303,11 +336,17 @@ var questionFive = function (event) {
     quizSection.append(result);
     time -= 10;
   }
+  event.stopPropagation()
+  answerOne.setAttribute("id", "choiceOne");
+  answerTwo.setAttribute("id", "choiceTwo");
+  answerThree.setAttribute("id", "choiceThree");
+  answerFour.setAttribute("id", "choiceFour");
 
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
   var choiceThree = document.getElementById("choiceThree");
   var choiceFour = document.getElementById("choiceFour");
+
 
   choiceOne.addEventListener("click", enterInitials);
   choiceTwo.addEventListener("click", enterInitials);
