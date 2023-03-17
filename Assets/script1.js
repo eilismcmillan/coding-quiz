@@ -155,11 +155,6 @@ var questionOne = function (event) {
   answerThree.textContent = quiz[0].answers[2];
   answerFour.textContent = quiz[0].answers[3];
 
-  answerOne.setAttribute("id", "choiceOne");
-  answerTwo.setAttribute("id", "choiceTwo");
-  answerThree.setAttribute("id", "choiceThree");
-  answerFour.setAttribute("id", "choiceFour");
-
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
   var choiceThree = document.getElementById("choiceThree");
@@ -183,11 +178,6 @@ var questionTwo = function (event) {
   answerTwo.textContent = quiz[1].answers[1];
   answerThree.textContent = quiz[1].answers[2];
   answerFour.textContent = quiz[1].answers[3];
-
-  answerOne.setAttribute("id", "choiceOne");
-  answerTwo.setAttribute("id", "choiceTwo");
-  answerThree.setAttribute("id", "choiceThree");
-  answerFour.setAttribute("id", "choiceFour");
 
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
@@ -344,12 +334,6 @@ var questionFive = function (event) {
     quizSection.append(result);
     time -= 10;
   }
-  
-  answerOne.setAttribute("id", "choiceOne");
-  answerTwo.setAttribute("id", "choiceTwo");
-  answerThree.setAttribute("id", "choiceThree");
-  answerFour.setAttribute("id", "choiceFour");
-
   var choiceOne = document.getElementById("choiceOne");
   var choiceTwo = document.getElementById("choiceTwo");
   var choiceThree = document.getElementById("choiceThree");
