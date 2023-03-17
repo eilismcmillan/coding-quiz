@@ -1,5 +1,7 @@
 # coding-quiz
 
+https://eilismcmillan.github.io/coding-quiz/
+
 ## Description
 This website is a multiple choice quiz that provides an opportunity to review users' javascript knowledge. Furthermore, given their is a highscore board, users can both compare their score with their peers, or compare with their own previous scores, and track their learning progress. 
 
